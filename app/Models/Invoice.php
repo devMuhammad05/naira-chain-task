@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Models;
 
 use App\Enums\InvoiceStatus;
@@ -36,6 +34,9 @@ class Invoice extends Model
         ];
     }
 
+    /**
+     * @return BelongsTo<User, self>
+    */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
