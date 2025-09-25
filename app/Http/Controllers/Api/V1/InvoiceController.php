@@ -92,8 +92,6 @@ class InvoiceController extends Controller
 
         $invoice->delete();
 
-        return response()->json([
-            'message' => 'Invoice deleted successfully',
-        ], Response::HTTP_OK);
+        return response()->json([], Response::HTTP_NO_CONTENT);
     }
 }
