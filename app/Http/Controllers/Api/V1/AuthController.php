@@ -34,7 +34,7 @@ class AuthController extends Controller
         ], Response::HTTP_CREATED);
     }
 
-    public function login(Request $request)
+    public function login(Request $request): JsonResponse
     {
         $data = $request->validate([
             'email' => ['required', 'string', 'email'],
@@ -59,6 +59,15 @@ class AuthController extends Controller
         return response()->json([
             'message' => 'Login successful',
             'data' => $response,
+        ], Response::HTTP_OK);
+    }
+
+    public function logout(): JsonResponse
+    {
+        Auth::user()->tokens()->delete();
+
+        return response()->json([
+            'message' => 'Logout successful',
         ], Response::HTTP_OK);
     }
 }

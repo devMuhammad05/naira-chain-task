@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\InvoiceStatus;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreInvoiceRequest extends FormRequest
 {
@@ -11,7 +13,7 @@ class StoreInvoiceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +24,15 @@ class StoreInvoiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'invoice_number' => ['required', 'string', 'max:255', 'unique:invoices,invoice_number'],
+            'description' => ['nullable', 'string'],
+            'billing_name' => ['required', 'string', 'max:255'],
+            'billing_email' => ['nullable', 'email', 'max:255'],
+            'billing_address' => ['nullable', 'string', 'max:500'],
+            'total_amount' => ['required', 'numeric', 'min:0'],
+            'due_date' => ['nullable', 'date', 'after_or_equal:issue_date'],
+            'issue_date' => ['required', 'date'],
+            'status' => ['required', Rule::enum(InvoiceStatus::class)],
         ];
     }
 }
