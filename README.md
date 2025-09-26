@@ -13,7 +13,7 @@
 -   🔐 **Secure Authentication** - Powered by Laravel Sanctum, registration, login, and logout flow
 -   📄 **Invoice CRUD Operations** - Full invoice lifecycle management
 -   🎯 **RESTful Design** - Clean, consistent API structure
-
+- 🧪 **Comprehensive Test Coverage** - Ensures reliability and prevents regressions across core features
 ---
 
 ## 🏗️ Installation & Setup
@@ -549,9 +549,12 @@ curl -X DELETE http://127.0.0.1:8000/api/v1/invoices/1 \
   -H "Authorization: Bearer YOUR_TOKEN_HERE"
 ```
 
-### Using Postman
+### 🚀 Using Postman
 
-Import the API endpoints into Postman or use tools like **Insomnia** for a user-friendly testing experience.
+You can easily explore and test the API with **Postman** or **Insomnia**.  
+All endpoints are documented here: [API Documentation](https://documenter.getpostman.com/view/26980690/2sB3QDuXUT)  
+
+
 
 ## 📝 Notes
 
