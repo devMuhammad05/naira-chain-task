@@ -32,7 +32,7 @@ class StoreInvoiceRequest extends FormRequest
             'total_amount' => ['required', 'numeric', 'min:0'],
             'due_date' => ['nullable', 'date', 'after_or_equal:issue_date'],
             'issue_date' => ['required', 'date'],
-            'status' => ['required', Rule::enum(InvoiceStatus::class)],
+            'status' => ['sometimes', Rule::in(InvoiceStatus::toArray())],
         ];
     }
 }

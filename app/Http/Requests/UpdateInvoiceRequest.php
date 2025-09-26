@@ -24,15 +24,15 @@ class UpdateInvoiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'invoice_number' => ['required', 'string', 'max:255'],
-            'description' => ['nullable', 'string'],
-            'billing_name' => ['required', 'string', 'max:255'],
-            'billing_email' => ['nullable', 'email', 'max:255'],
-            'billing_address' => ['nullable', 'string', 'max:500'],
-            'total_amount' => ['required', 'numeric', 'min:0'],
-            'due_date' => ['nullable', 'date', 'after_or_equal:issue_date'],
-            'issue_date' => ['required', 'date'],
-            'status' => ['required', Rule::enum(InvoiceStatus::class)],
+            'invoice_number' => ['sometimes', 'string', 'max:255'],
+            'description' => ['sometimes', 'string', 'nullable'],
+            'billing_name' => ['sometimes', 'string', 'max:255'],
+            'billing_email' => ['sometimes', 'email'],
+            'billing_address' => ['sometimes', 'string', 'nullable'],
+            'total_amount' => ['sometimes', 'numeric', 'min:0'],
+            'due_date' => ['sometimes', 'date'],
+            'issue_date' => ['sometimes', 'date'],
+            'status' => ['sometimes', Rule::in(InvoiceStatus::toArray())],
         ];
     }
 }
