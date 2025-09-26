@@ -224,7 +224,7 @@ Retrieves all invoices for the authenticated user, ordered by latest first.
             "total_amount": "7500.00",
             "issue_date": "2025-09-26",
             "due_date": "2025-10-26",
-            "status": "Pending",
+            "status": "Draft",
             "user_id": 1,
             "created_at": "2025-09-26T10:30:00.000000Z",
             "updated_at": "2025-09-26T10:30:00.000000Z"
@@ -305,7 +305,7 @@ Retrieves a specific invoice by ID.
         "total_amount": "7500.00",
         "issue_date": "2025-09-26",
         "due_date": "2025-10-26",
-        "status": "Pending",
+        "status": "Draft",
         "user_id": 1,
         "created_at": "2025-09-26T10:30:00.000000Z",
         "updated_at": "2025-09-26T10:30:00.000000Z"
@@ -408,7 +408,6 @@ Permanently deletes an invoice.
 | Status      | Description                       |
 | ----------- | --------------------------------- |
 | `Draft`     | Invoice created but not yet sent  |
-| `Pending`   | Invoice sent and awaiting payment |
 | `Paid`      | Invoice has been paid in full     |
 | `Overdue`   | Invoice past due date and unpaid  |
 | `Cancelled` | Invoice has been cancelled        |
